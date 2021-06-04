@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../../assets/img/header-logo.png";
-import "../../../global.css";
 
 const Header = () => {
   const [links, setlinks] = useState([
