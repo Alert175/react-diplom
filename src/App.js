@@ -13,6 +13,7 @@ import NotFound from "./pages/404";
 // import general components
 import Header from "./components/general-components/Header";
 import Banner from "./components/general-components/Banner";
+import Footer from "./components/general-components/Footer";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           </div>
         </div>
       </main>
+      <Footer />
     </Router>
   );
 }
