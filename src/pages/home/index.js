@@ -1,5 +1,11 @@
+import TopSales from "../../components/home-components/topSales";
+
 const Home = () => {
-  return <>Home</>;
+  return (
+    <>
+      <TopSales />
+    </>
+  );
 };
 
 export default Home;
