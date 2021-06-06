@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import Catalog from "./pages/catalog";
 import About from "./pages/about";
 import Contacts from "./pages/contacts";
+import Cart from "./pages/Cart";
 import NotFound from "./pages/404";
 
 // import general components
@@ -28,6 +29,7 @@ function App() {
               <Route path="/catalog" component={Catalog} />
               <Route path="/about" component={About} />
               <Route path="/contacts" component={Contacts} />
+              <Route path="/cart" component={Cart} />
               <Route path="*" component={NotFound} />
             </Switch>
           </div>
