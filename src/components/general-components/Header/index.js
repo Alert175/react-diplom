@@ -3,6 +3,7 @@ import { useState } from "react";
 import logo from "../../../assets/img/header-logo.png";
 
 const Header = () => {
+  // eslint-disable-next-line
   const [links, setlinks] = useState([
     {
       text: "Главная",
@@ -21,9 +22,7 @@ const Header = () => {
       url: "/contacts",
     },
   ]);
-
   const [showForm, setshowForm] = useState(false);
-
   const location = useLocation();
 
   return (

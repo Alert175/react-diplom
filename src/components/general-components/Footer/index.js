@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  // eslint-disable-next-line
   const [links, setlinks] = useState([
     {
       text: "Каталог",
