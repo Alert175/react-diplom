@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../../assets/img/header-logo.png";
 
@@ -22,6 +22,10 @@ const Header = () => {
     },
   ]);
 
+  const [showForm, setshowForm] = useState(false);
+
+  const location = useLocation();
+
   return (
     <header className="container">
       <div className="row">
@@ -33,11 +37,40 @@ const Header = () => {
             <div className="collapase navbar-collapse" id="navbarMain">
               <ul className="navbar-nav mr-auto">
                 {links.map((element, index) => (
-                  <Link key={index} to={element.url}>
-                    <li className="nav-item">{element.text}</li>
-                  </Link>
+                  <li
+                    key={index}
+                    to={element.url}
+                    className={`nav-item ${
+                      location.pathname === element.url ? "active" : ""
+                    }`}
+                  >
+                    <Link to={element.url} className="nav-link">
+                      {element.text}
+                    </Link>
+                  </li>
                 ))}
               </ul>
+              <div>
+                <div className="header-controls-pics">
+                  <div
+                    onClick={() => setshowForm(!showForm)}
+                    data-id="search-expander"
+                    className="header-controls-pic header-controls-search"
+                  ></div>
+                  <div className="header-controls-pic header-controls-cart">
+                    <div className="header-controls-cart-full">1</div>
+                    <div className="header-controls-cart-menu"></div>
+                  </div>
+                </div>
+                <form
+                  data-id="search-form"
+                  className={`header-controls-search-form form-inline ${
+                    !showForm ? "invisible" : ""
+                  }`}
+                >
+                  <input className="form-control" placeholder="Поиск" />
+                </form>
+              </div>
             </div>
           </nav>
         </div>
