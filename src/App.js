@@ -12,18 +12,26 @@ import NotFound from "./pages/404";
 
 // import general components
 import Header from "./components/general-components/Header";
+import Banner from "./components/general-components/Banner";
 
 function App() {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/catalog" component={Catalog} />
-        <Route path="/about" component={About} />
-        <Route path="/contacts" component={Contacts} />
-        <Route path="*" component={NotFound} />
-      </Switch>
+      <main className="container">
+        <div className="row">
+          <div className="col">
+            <Banner />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/catalog" component={Catalog} />
+              <Route path="/about" component={About} />
+              <Route path="/contacts" component={Contacts} />
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </div>
+        </div>
+      </main>
     </Router>
   );
 }
