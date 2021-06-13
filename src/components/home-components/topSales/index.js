@@ -3,7 +3,7 @@ import Loader from "./loader";
 import ProductCard from "../productCard";
 
 const TopSales = () => {
-  const { response, isLoading, error } = useFetch(
+  const [response, isLoading, error] = useFetch(
     "http://localhost:7070/api/top-sales",
     {}
   );

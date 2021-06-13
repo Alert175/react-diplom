@@ -4,7 +4,7 @@ import Catalog from "../../components/general-components/Catalog";
 const Home = () => {
   return (
     <>
-      {/* <TopSales /> */}
+      <TopSales />
       <Catalog />
     </>
   );
