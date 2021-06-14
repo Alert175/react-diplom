@@ -3,12 +3,16 @@ import Loader from "./loader";
 import ProductCard from "../../home-components/productCard";
 
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 
-const Catalog = () => {
+const Catalog = ({ isFind }) => {
   // config state
   const [activeCategorie, setactiveCategorie] = useState(0);
   const [queryItemCategorie, setqueryItemCategorie] = useState(0);
+
+  // find state
+  const [findWord, setfindWord] = useState("");
 
   // offset state
   const [queryOffset, setqueryOffset] = useState(0);
@@ -46,6 +50,24 @@ const Catalog = () => {
       setisLoadItems(false);
       seterrItems(err.response.status);
     }
+  };
+
+  // request find for input word
+  const getItemsFormWord = () => {
+    try {
+      setitems([]);
+      //
+    } catch (error) {
+      console.error(error);
+      setisLoadItems(false);
+      setitems([]);
+    }
+  };
+
+  // change find state
+  const handlerChangeFindWord = (event) => {
+    console.log("submit");
+    event.preventDefault();
   };
 
   // select categories
@@ -90,6 +112,64 @@ const Catalog = () => {
   if (errCategories !== null || errItems !== null) {
     return null;
   }
+
+  // internal components for find keyword
+  const FindKeyWords = () => {
+    if (isFind) {
+      return (
+        <form
+          className="catalog-search-form form-inline"
+          onSubmit={(event) => handlerChangeFindWord(event)}
+        >
+          <input
+            className="form-control"
+            placeholder="Поиск"
+            value={findWord}
+            onInput={(event) => setfindWord(event.target.value)}
+          />
+        </form>
+      );
+    }
+    return null;
+  };
+
+  // internal component for categories
+  const Categories = () => {
+    if (isLoadCategories) {
+      return <Loader />;
+    }
+    if (categories !== null) {
+      return (
+        <ul className="catalog-categories nav justify-content-center">
+          <li className="nav-item">
+            {/* eslint-disable-next-line */}
+            <a
+              className={`nav-link ${activeCategorie === 0 ? "active" : ""}`}
+              onClick={(event) => handleChangeCategorie(event, 0)}
+              href="#"
+            >
+              Все
+            </a>
+          </li>
+          {categories.map((element) => (
+            <li key={element.id} className="nav-item">
+              {/* eslint-disable-next-line */}
+              <a
+                className={`nav-link ${
+                  activeCategorie === element.id ? "active" : ""
+                }`}
+                onClick={(event) => handleChangeCategorie(event, element.id)}
+                href="#"
+              >
+                {element.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return null;
+  };
 
   // internal component for Items
   const CardItems = () => {
@@ -147,44 +227,24 @@ const Catalog = () => {
   return (
     <section className="catalog">
       <h2 className="text-center">Каталог</h2>
+      {/* Строка поиска */}
+      <FindKeyWords />
       {/* Категории */}
-      {isLoadCategories ? (
-        <Loader />
-      ) : (
-        <ul className="catalog-categories nav justify-content-center">
-          <li className="nav-item">
-            {/* eslint-disable-next-line */}
-            <a
-              className={`nav-link ${activeCategorie === 0 ? "active" : ""}`}
-              onClick={(event) => handleChangeCategorie(event, 0)}
-              href="#"
-            >
-              Все
-            </a>
-          </li>
-          {categories !== null &&
-            categories.map((element) => (
-              <li key={element.id} className="nav-item">
-                {/* eslint-disable-next-line */}
-                <a
-                  className={`nav-link ${
-                    activeCategorie === element.id ? "active" : ""
-                  }`}
-                  onClick={(event) => handleChangeCategorie(event, element.id)}
-                  href="#"
-                >
-                  {element.title}
-                </a>
-              </li>
-            ))}
-        </ul>
-      )}
+      <Categories />
       {/* Карточки товара */}
       <CardItems />
       {/* Загрузить еще */}
       <LoadMore />
     </section>
   );
+};
+
+Catalog.defauldProps = {
+  isFind: false,
+};
+
+Catalog.propTypes = {
+  isFind: PropTypes.bool,
 };
 
 export default Catalog;

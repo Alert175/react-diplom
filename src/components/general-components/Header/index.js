@@ -1,6 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../../assets/img/header-logo.png";
+import { useSelector, useDispatch } from "react-redux";
+import { changeFind, selectFind } from "./findSlice";
 
 const Header = () => {
   // eslint-disable-next-line
@@ -24,6 +26,18 @@ const Header = () => {
   ]);
   const [showForm, setshowForm] = useState(false);
   const location = useLocation();
+  const history = useHistory();
+
+  // store state
+  const findValue = useSelector(selectFind);
+  const dispatch = useDispatch();
+
+  const handlerFind = (event) => {
+    if (location !== "/catalog") {
+      history.push("/catalog");
+    }
+    dispatch(changeFind(event.target.value));
+  };
 
   return (
     <header className="container">
@@ -67,7 +81,12 @@ const Header = () => {
                     !showForm ? "invisible" : ""
                   }`}
                 >
-                  <input className="form-control" placeholder="Поиск" />
+                  <input
+                    className="form-control"
+                    placeholder="Поиск"
+                    value={findValue}
+                    onInput={handlerFind}
+                  />
                 </form>
               </div>
             </div>
