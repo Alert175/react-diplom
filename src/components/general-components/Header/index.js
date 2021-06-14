@@ -1,8 +1,8 @@
 import { Link, useLocation, useHistory } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../../assets/img/header-logo.png";
-import { useSelector, useDispatch } from "react-redux";
-import { changeFind, selectFind } from "./findSlice";
+import { useDispatch } from "react-redux";
+import { changeFind } from "./findSlice";
 
 const Header = () => {
   // eslint-disable-next-line
@@ -25,18 +25,35 @@ const Header = () => {
     },
   ]);
   const [showForm, setshowForm] = useState(false);
+  const [findWord, setfindWord] = useState("");
   const location = useLocation();
   const history = useHistory();
 
   // store state
-  const findValue = useSelector(selectFind);
   const dispatch = useDispatch();
 
-  const handlerFind = (event) => {
+  const handlerBehavior = (event) => {
+    if (!showForm) {
+      setshowForm(!showForm);
+      return;
+    }
+    if (findWord !== "") {
+      handlerFind();
+      return;
+    }
+    setshowForm(!showForm);
+  };
+
+  const handlerFind = () => {
     if (location !== "/catalog") {
       history.push("/catalog");
     }
-    dispatch(changeFind(event.target.value));
+    dispatch(changeFind(findWord));
+  };
+
+  const handlerSubmitFind = (event) => {
+    event.preventDefault();
+    handlerFind();
   };
 
   return (
@@ -66,7 +83,7 @@ const Header = () => {
               <div>
                 <div className="header-controls-pics">
                   <div
-                    onClick={() => setshowForm(!showForm)}
+                    onClick={handlerBehavior}
                     data-id="search-expander"
                     className="header-controls-pic header-controls-search"
                   ></div>
@@ -80,12 +97,13 @@ const Header = () => {
                   className={`header-controls-search-form form-inline ${
                     !showForm ? "invisible" : ""
                   }`}
+                  onSubmit={handlerSubmitFind}
                 >
                   <input
                     className="form-control"
                     placeholder="Поиск"
-                    value={findValue}
-                    onInput={handlerFind}
+                    value={findWord}
+                    onInput={(event) => setfindWord(event.target.value)}
                   />
                 </form>
               </div>

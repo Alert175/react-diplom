@@ -2,6 +2,9 @@ import useFetch from "../../../hooks/useFetch";
 import Loader from "./loader";
 import ProductCard from "../../home-components/productCard";
 
+import { useSelector, useDispatch } from "react-redux";
+import { changeFind, selectFind } from "../Header/findSlice";
+
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -11,8 +14,9 @@ const Catalog = ({ isFind }) => {
   const [activeCategorie, setactiveCategorie] = useState(0);
   const [queryItemCategorie, setqueryItemCategorie] = useState(0);
 
-  // find state
-  const [findWord, setfindWord] = useState("");
+  // find store state
+  const findValue = useSelector(selectFind);
+  const dispatch = useDispatch();
 
   // offset state
   const [queryOffset, setqueryOffset] = useState(0);
@@ -38,6 +42,7 @@ const Catalog = ({ isFind }) => {
         params: {
           categoryId,
           offset,
+          q: findValue,
         },
       });
       setisLoadItems(false);
@@ -52,21 +57,9 @@ const Catalog = ({ isFind }) => {
     }
   };
 
-  // request find for input word
-  const getItemsFormWord = () => {
-    try {
-      setitems([]);
-      //
-    } catch (error) {
-      console.error(error);
-      setisLoadItems(false);
-      setitems([]);
-    }
-  };
-
   // change find state
   const handlerChangeFindWord = (event) => {
-    console.log("submit");
+    getItems();
     event.preventDefault();
   };
 
@@ -84,7 +77,7 @@ const Catalog = ({ isFind }) => {
   // handler more items
   const handlerLoadMore = async () => {
     const counterOffset = queryOffset + 6;
-    setqueryOffset((prev) => (prev += 6));
+    await setqueryOffset((prev) => (prev += 6));
     try {
       setisLoadMoreItems(true);
       const response = await axios.get("http://localhost:7070/api/items", {
@@ -93,8 +86,8 @@ const Catalog = ({ isFind }) => {
           offset: counterOffset,
         },
       });
-      setisLoadMoreItems(false);
-      setitems([...items, ...response.data]);
+      await setisLoadMoreItems(false);
+      await setitems([...items, ...response.data]);
       if (response.data.length < 6) {
         setisShowMore(false);
       }
@@ -107,6 +100,7 @@ const Catalog = ({ isFind }) => {
 
   useEffect(() => {
     getItems();
+    // eslint-disable-next-line
   }, []);
 
   if (errCategories !== null || errItems !== null) {
@@ -124,8 +118,8 @@ const Catalog = ({ isFind }) => {
           <input
             className="form-control"
             placeholder="Поиск"
-            value={findWord}
-            onInput={(event) => setfindWord(event.target.value)}
+            value={findValue}
+            onInput={(event) => dispatch(changeFind(event.target.value))}
           />
         </form>
       );

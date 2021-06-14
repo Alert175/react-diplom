@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
       <TopSales />
-      <Catalog isFind={true} />
+      <Catalog />
     </>
   );
 };
