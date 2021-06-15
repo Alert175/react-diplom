@@ -12,8 +12,6 @@ const Order = () => {
   const [isAgreement, setisAgreement] = useState(false);
   const [phone, setphone] = useState("");
   const [address, setaddress] = useState("");
-
-  const [isLoad, setisLoad] = useState(false);
   const [statusOrder, setstatusOrder] = useState(null);
 
   const sendOrder = async () => {
@@ -44,7 +42,7 @@ const Order = () => {
       address !== " " &&
       address !== "" &&
       isAgreement &&
-      !isLoad &&
+      statusOrder === null &&
       products.length > 0
     ) {
       sendOrder();
@@ -56,11 +54,11 @@ const Order = () => {
   }
 
   if (statusOrder === "success") {
-    return <>Заказ успешно оформлен</>;
+    return <h2 class="text-center">Заказ успешно оформлен</h2>;
   }
 
   if (statusOrder === "error") {
-    return <>Произошла ошибка, попробуйте позже</>;
+    return <h2 class="text-center">Произошла ошибка, попробуйте позже</h2>;
   }
 
   return (
@@ -106,7 +104,19 @@ const Order = () => {
               Согласен с правилами доставки
             </label>
           </div>
-          <button type="submit" className="btn btn-outline-secondary">
+          <button
+            type="submit"
+            className="btn btn-outline-secondary"
+            disabled={
+              phone === " " ||
+              phone === "" ||
+              address === " " ||
+              address === "" ||
+              !isAgreement ||
+              statusOrder !== null ||
+              products.length === 0
+            }
+          >
             Оформить
           </button>
         </form>

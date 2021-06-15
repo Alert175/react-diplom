@@ -2,15 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { setItem, deleteItem } from "../../../services/localStorage.services";
 
 const initialState = {
-  value: [
-    {
-      id: 21,
-      title: "Туфли принцессы",
-      price: 3000,
-      size: "12 US",
-      count: 5,
-    },
-  ],
+  value: [],
 };
 
 export const slice = createSlice({
