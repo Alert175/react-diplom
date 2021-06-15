@@ -52,11 +52,11 @@ const Order = () => {
   }
 
   if (statusOrder === "success") {
-    return <h2 class="text-center">Заказ успешно оформлен</h2>;
+    return <h2 className="text-center">Заказ успешно оформлен</h2>;
   }
 
   if (statusOrder === "error") {
-    return <h2 class="text-center">Произошла ошибка, попробуйте позже</h2>;
+    return <h2 className="text-center">Произошла ошибка, попробуйте позже</h2>;
   }
 
   return (
