@@ -6,6 +6,7 @@ import "./index.css";
 // import routers
 import Home from "./pages/home";
 import Catalog from "./pages/catalog";
+import PageProduct from "./pages/Cart/id";
 import About from "./pages/about";
 import Contacts from "./pages/contacts";
 import Cart from "./pages/Cart";
@@ -26,6 +27,7 @@ function App() {
             <Banner />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route path="/catalog/:id" component={PageProduct} />
               <Route path="/catalog" component={Catalog} />
               <Route path="/about" component={About} />
               <Route path="/contacts" component={Contacts} />

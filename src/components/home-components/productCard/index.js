@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ id, category, title, price, imageSource }) => {
   return (
@@ -7,9 +8,9 @@ const ProductCard = ({ id, category, title, price, imageSource }) => {
       <div className="card-body">
         <p className="card-text">{title}</p>
         <p className="card-text">{price} руб.</p>
-        <a href="/products/1.html" className="btn btn-outline-primary">
+        <Link to={`/catalog/${id}`} className="btn btn-outline-primary">
           Заказать
-        </a>
+        </Link>
       </div>
     </div>
   );
