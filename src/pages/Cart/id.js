@@ -1,15 +1,33 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addedProduct } from "../../components/cart-components/Basket/basketSlice";
 import useFetch from "../../hooks/useFetch";
 import Loader from "./loader";
 
 const PageProduct = () => {
   const { id } = useParams();
+  const history = useHistory();
   const [data, isLoad, error] = useFetch(
     `http://localhost:7070/api/items/${id}`
   );
   const [activeSize, setactiveSize] = useState(null);
   const [counter, setcounter] = useState(0);
+
+  const dispatch = useDispatch();
+
+  const handlerAddToBasket = () => {
+    dispatch(
+      addedProduct({
+        id: data.id,
+        title: data.title,
+        price: data.price,
+        size: activeSize,
+        count: counter,
+      })
+    );
+    history.push("/cart");
+  };
 
   if (isLoad) {
     return <Loader />;
@@ -70,39 +88,38 @@ const PageProduct = () => {
                     )
                 )}
               </p>
-              {data.sizes.find((element) => element.avalible === true) && (
-                <p>
-                  Количество:{" "}
-                  <span className="btn-group btn-group-sm pl-2">
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => {
-                        if (counter > 0) {
-                          setcounter((prev) => (prev -= 1));
-                        }
-                      }}
-                    >
-                      -
-                    </button>
-                    <span className="btn btn-outline-primary">{counter}</span>
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => {
-                        if (counter < 10) {
-                          setcounter((prev) => (prev += 1));
-                        }
-                      }}
-                    >
-                      +
-                    </button>
-                  </span>
-                </p>
-              )}
+              <p>
+                Количество:{" "}
+                <span className="btn-group btn-group-sm pl-2">
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      if (counter > 0) {
+                        setcounter((prev) => (prev -= 1));
+                      }
+                    }}
+                  >
+                    -
+                  </button>
+                  <span className="btn btn-outline-primary">{counter}</span>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      if (counter < 10) {
+                        setcounter((prev) => (prev += 1));
+                      }
+                    }}
+                  >
+                    +
+                  </button>
+                </span>
+              </p>
             </div>
             {data.sizes.find((element) => element.avalible === true) && (
               <button
                 disabled={counter === 0 || activeSize === null}
                 className="btn btn-danger btn-block btn-lg"
+                onClick={handlerAddToBasket}
               >
                 В корзину
               </button>

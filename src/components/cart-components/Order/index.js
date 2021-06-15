@@ -1,4 +1,68 @@
+import { useDispatch, useSelector } from "react-redux";
+import { clearProduts, selectProducts } from "../Basket/basketSlice";
+import { useState } from "react";
+import axios from "axios";
+
+import Loader from "./loader";
+
 const Order = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
+
+  const [isAgreement, setisAgreement] = useState(false);
+  const [phone, setphone] = useState("");
+  const [address, setaddress] = useState("");
+
+  const [isLoad, setisLoad] = useState(false);
+  const [statusOrder, setstatusOrder] = useState(null);
+
+  const sendOrder = async () => {
+    try {
+      setstatusOrder("pending");
+      await axios.post("http://localhost:7070/api/order", {
+        data: {
+          owner: {
+            phone: phone,
+            address: address,
+          },
+          items: products,
+        },
+      });
+      dispatch(clearProduts());
+      setstatusOrder("success");
+    } catch (error) {
+      console.error(error);
+      setstatusOrder("error");
+    }
+  };
+
+  const handlerSubmit = (event) => {
+    event.preventDefault();
+    if (
+      phone !== " " &&
+      phone !== "" &&
+      address !== " " &&
+      address !== "" &&
+      isAgreement &&
+      !isLoad &&
+      products.length > 0
+    ) {
+      sendOrder();
+    }
+  };
+
+  if (statusOrder === "pending") {
+    return <Loader />;
+  }
+
+  if (statusOrder === "success") {
+    return <>Заказ успешно оформлен</>;
+  }
+
+  if (statusOrder === "error") {
+    return <>Произошла ошибка, попробуйте позже</>;
+  }
+
   return (
     <section className="order">
       <h2 className="text-center">Оформить заказ</h2>
@@ -9,13 +73,15 @@ const Order = () => {
           margin: `0 auto`,
         }}
       >
-        <form className="card-body">
+        <form className="card-body" onSubmit={handlerSubmit}>
           <div className="form-group">
             <label htmlFor="phone">Телефон</label>
             <input
               className="form-control"
               id="phone"
               placeholder="Ваш телефон"
+              value={phone}
+              onInput={(event) => setphone(event.target.value)}
             />
           </div>
           <div className="form-group">
@@ -24,6 +90,8 @@ const Order = () => {
               className="form-control"
               id="address"
               placeholder="Адрес доставки"
+              value={address}
+              onInput={(event) => setaddress(event.target.value)}
             />
           </div>
           <div className="form-group form-check">
@@ -31,6 +99,8 @@ const Order = () => {
               type="checkbox"
               className="form-check-input"
               id="agreement"
+              checked={isAgreement}
+              onChange={() => setisAgreement(!isAgreement)}
             />
             <label className="form-check-label" htmlFor="agreement">
               Согласен с правилами доставки

@@ -1,8 +1,9 @@
 import { Link, useLocation, useHistory } from "react-router-dom";
 import { useState } from "react";
 import logo from "../../../assets/img/header-logo.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeFind } from "./findSlice";
+import { selectProducts } from "../../cart-components/Basket/basketSlice";
 
 const Header = () => {
   // eslint-disable-next-line
@@ -31,6 +32,7 @@ const Header = () => {
 
   // store state
   const dispatch = useDispatch();
+  const productsByBasket = useSelector(selectProducts);
 
   const handlerBehavior = (event) => {
     if (!showForm) {
@@ -87,8 +89,15 @@ const Header = () => {
                     data-id="search-expander"
                     className="header-controls-pic header-controls-search"
                   ></div>
-                  <div className="header-controls-pic header-controls-cart">
-                    <div className="header-controls-cart-full">1</div>
+                  <div
+                    className="header-controls-pic header-controls-cart"
+                    onClick={() => history.push("/cart")}
+                  >
+                    {productsByBasket.length > 0 && (
+                      <div className="header-controls-cart-full">
+                        {productsByBasket.length}
+                      </div>
+                    )}
                     <div className="header-controls-cart-menu"></div>
                   </div>
                 </div>
