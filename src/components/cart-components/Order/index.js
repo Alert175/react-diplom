@@ -18,13 +18,11 @@ const Order = () => {
     try {
       setstatusOrder("pending");
       await axios.post("http://localhost:7070/api/order", {
-        data: {
-          owner: {
-            phone: phone,
-            address: address,
-          },
-          items: products,
+        owner: {
+          phone: phone,
+          address: address,
         },
+        items: products,
       });
       dispatch(clearProduts());
       setstatusOrder("success");
