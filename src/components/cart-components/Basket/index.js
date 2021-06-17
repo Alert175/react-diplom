@@ -32,7 +32,7 @@ const Basket = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((element, index) => (
+          {products && products.map((element, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
               <td>

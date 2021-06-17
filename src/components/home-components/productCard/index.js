@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ id, category, title, price, imageSource }) => {
   return (
     <div className="card">
-      <img src={imageSource} className="card-img-top img-fluid" alt={title} />
+      <img src={imageSource} style={{maxHeight: '220px', objectFit: 'contain', width: '100%', height: '100%'}} className="card-img-top img-fluid" alt={title} />
       <div className="card-body">
         <p className="card-text">{title}</p>
         <p className="card-text">{price} руб.</p>

@@ -137,7 +137,7 @@ const Catalog = ({ isFind }) => {
                 Все
               </a>
             </li>
-            {categories.map((element) => (
+            {categories && categories.map((element) => (
                 <li key={element.id} className="nav-item">
                   {/* eslint-disable-next-line */}
                   <a
