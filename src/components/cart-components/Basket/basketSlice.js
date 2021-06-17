@@ -1,13 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setItem, deleteItem } from "../../../services/localStorage.services";
+import {setItem, deleteItem, getItem} from "../../../services/localStorage.services";
 
-const initialState = {
-  value: [],
-};
+// get products in localStorage
+const handlerReadStorage = () => {
+  try {
+    return {
+      value: getItem('products') || []
+    }
+  } catch (e) {
+    return {
+      value: [],
+    }
+  }
+}
 
 export const slice = createSlice({
   name: "basket",
-  initialState,
+  initialState: handlerReadStorage(),
   reducers: {
     addedProduct: (state, action) => {
       if (

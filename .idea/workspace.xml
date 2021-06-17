@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="bag fix for revision step - 1">
+    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="bag fix for revision step - 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart-components/Basket/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart-components/Basket/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/general-components/Catalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general-components/Catalog/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cart-components/Basket/basketSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart-components/Basket/basketSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/localStorage.services.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/localStorage.services.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623921066179</updated>
-      <workItem from="1623921071034" duration="2146000" />
+      <workItem from="1623921071034" duration="2792000" />
     </task>
     <task id="LOCAL-00001" summary="bag fix for revision step - 6">
       <created>1623921508203</created>
@@ -56,7 +56,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623922055652</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="bag fix for revision step - 2">
+      <created>1623923250507</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623923250507</updated>
+    </task>
+    <task id="LOCAL-00004" summary="bag fix for revision step - 3">
+      <created>1623923551827</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623923551827</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -76,6 +90,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bag fix for revision step - 6" />
     <MESSAGE value="bag fix for revision step - 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="bag fix for revision step - 1" />
+    <MESSAGE value="bag fix for revision step - 2" />
+    <MESSAGE value="bag fix for revision step - 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="bag fix for revision step - 3" />
   </component>
 </project>
