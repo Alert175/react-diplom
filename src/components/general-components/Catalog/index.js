@@ -107,128 +107,92 @@ const Catalog = ({ isFind }) => {
     return null;
   }
 
-  // internal components for find keyword
-  const FindKeyWords = () => {
-    if (isFind) {
-      return (
-        <form
+  return (
+    <section className="catalog">
+      <h2 className="text-center">Каталог</h2>
+      {/* Строка поиска */}
+      {isFind && <form
           className="catalog-search-form form-inline"
           onSubmit={(event) => handlerChangeFindWord(event)}
-        >
-          <input
+      >
+        <input
             className="form-control"
             placeholder="Поиск"
             value={findValue}
             onInput={(event) => dispatch(changeFind(event.target.value))}
-          />
-        </form>
-      );
-    }
-    return null;
-  };
-
-  // internal component for categories
-  const Categories = () => {
-    if (isLoadCategories) {
-      return <Loader />;
-    }
-    if (categories !== null) {
-      return (
-        <ul className="catalog-categories nav justify-content-center">
-          <li className="nav-item">
-            {/* eslint-disable-next-line */}
-            <a
-              className={`nav-link ${activeCategorie === 0 ? "active" : ""}`}
-              onClick={(event) => handleChangeCategorie(event, 0)}
-              href="#"
-            >
-              Все
-            </a>
-          </li>
-          {categories.map((element) => (
-            <li key={element.id} className="nav-item">
+        />
+      </form>}
+      {/* Категории */}
+      {isLoadCategories
+          ? <Loader />
+          : categories !== null && categories !== []
+              ? <ul className="catalog-categories nav justify-content-center">
+            <li className="nav-item">
               {/* eslint-disable-next-line */}
               <a
-                className={`nav-link ${
-                  activeCategorie === element.id ? "active" : ""
-                }`}
-                onClick={(event) => handleChangeCategorie(event, element.id)}
-                href="#"
+                  className={`nav-link ${activeCategorie === 0 ? "active" : ""}`}
+                  onClick={(event) => handleChangeCategorie(event, 0)}
+                  href="#"
               >
-                {element.title}
+                Все
               </a>
             </li>
-          ))}
-        </ul>
-      );
-    }
-    return null;
-  };
-
-  // internal component for Items
-  const CardItems = () => {
-    if (isLoadItems) {
-      return <Loader />;
-    }
-    if (errItems === null) {
-      return (
-        <div className="row">
-          {!isLoadItems && items && (
-            <div className="row">
-              {items.map((element, index) => (
-                <div key={`${element.id}-${index}`} className="col-4">
-                  <ProductCard
-                    id={element.id}
-                    title={element.title}
-                    price={element.price}
-                    category={element.category}
-                    imageSource={element.images[0]}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      );
-    }
-    return null;
-  };
-
-  // internal component for load more
-  const LoadMore = () => {
-    if (isLoadMoreItems) {
-      return (
-        <div className="text-center">
-          <Loader />
-          <button disabled className="btn btn-outline-primary">
-            Загрузить ещё
-          </button>
-        </div>
-      );
-    }
-    if (isShowMore && !isLoadMoreItems && !isLoadItems) {
-      return (
+            {categories.map((element) => (
+                <li key={element.id} className="nav-item">
+                  {/* eslint-disable-next-line */}
+                  <a
+                      className={`nav-link ${
+                          activeCategorie === element.id ? "active" : ""
+                      }`}
+                      onClick={(event) => handleChangeCategorie(event, element.id)}
+                      href="#"
+                  >
+                    {element.title}
+                  </a>
+                </li>
+            ))}
+          </ul>
+              : null
+      }
+      {/* Карточки товара */}
+      {isLoadItems
+          ? <Loader/>
+          : errItems === null
+              ? <div className="row">
+                {!isLoadItems && items && (
+                    <div className="row">
+                      {items.map((element, index) => (
+                          <div key={`${element.id}-${index}`} className="col-4">
+                            <ProductCard
+                                id={element.id}
+                                title={element.title}
+                                price={element.price}
+                                category={element.category}
+                                imageSource={element.images[0]}
+                            />
+                          </div>
+                      ))}
+                    </div>
+                )}
+              </div>
+              : null
+      }
+      {/* Загрузить еще */}
+      {isLoadMoreItems && <div className="text-center">
+            <Loader />
+            <button disabled className="btn btn-outline-primary">
+              Загрузить ещё
+            </button>
+          </div>
+      }
+      {
+        isShowMore && !isLoadMoreItems && !isLoadItems &&
         <div className="text-center">
           <button onClick={handlerLoadMore} className="btn btn-outline-primary">
             Загрузить ещё
           </button>
         </div>
-      );
-    }
-    return null;
-  };
-
-  return (
-    <section className="catalog">
-      <h2 className="text-center">Каталог</h2>
-      {/* Строка поиска */}
-      <FindKeyWords />
-      {/* Категории */}
-      <Categories />
-      {/* Карточки товара */}
-      <CardItems />
-      {/* Загрузить еще */}
-      <LoadMore />
+      }
     </section>
   );
 };
