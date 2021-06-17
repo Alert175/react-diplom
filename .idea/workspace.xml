@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69d04420-bdb0-4c4c-9aa2-bc7ffe085cbb" name="Default Changelist" comment="" />
+    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/react-diplom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-diplom.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general-components/Catalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general-components/Catalog/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1tgJrSM7XCErt7Tlrs1lx0Yd2gK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1u4NnBYJqH8D8eAQ8tq6ZjBWBkl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,19 +22,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SeviceSelectionHouse" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="69d04420-bdb0-4c4c-9aa2-bc7ffe085cbb" name="Default Changelist" comment="" />
-      <created>1623185003143</created>
+      <changelist id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="" />
+      <created>1623921066179</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1623185003143</updated>
-      <workItem from="1623185006952" duration="60000" />
+      <updated>1623921066179</updated>
+      <workItem from="1623921071034" duration="343000" />
     </task>
     <servers />
   </component>

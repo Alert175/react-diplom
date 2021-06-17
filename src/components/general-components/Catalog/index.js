@@ -53,7 +53,7 @@ const Catalog = ({ isFind }) => {
     } catch (err) {
       console.error(err);
       setisLoadItems(false);
-      seterrItems(err.response.status);
+      seterrItems(err);
     }
   };
 
