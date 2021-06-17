@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="bag fix for revision step - 3">
+    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="bag fix for revision step - 5">
+      <change afterPath="$PROJECT_DIR$/public/holder.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart-components/Basket/basketSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart-components/Basket/basketSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/localStorage.services.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/localStorage.services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home-components/productCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home-components/productCard/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +26,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\react-diplom\public" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -40,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623921066179</updated>
-      <workItem from="1623921071034" duration="2792000" />
+      <workItem from="1623921071034" duration="4145000" />
     </task>
     <task id="LOCAL-00001" summary="bag fix for revision step - 6">
       <created>1623921508203</created>
@@ -70,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623923551827</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="bag fix for revision step - 5">
+      <created>1623923985777</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623923985777</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +104,7 @@
     <MESSAGE value="bag fix for revision step - 1" />
     <MESSAGE value="bag fix for revision step - 2" />
     <MESSAGE value="bag fix for revision step - 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="bag fix for revision step - 3" />
+    <MESSAGE value="bag fix for revision step - 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="bag fix for revision step - 5" />
   </component>
 </project>
