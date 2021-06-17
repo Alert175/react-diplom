@@ -3,7 +3,7 @@ import { clearProduts, selectProducts } from "../Basket/basketSlice";
 import { useState } from "react";
 import axios from "axios";
 
-import Loader from "./loader";
+import Loader from "../../general-components/Loader";
 
 const Order = () => {
   const dispatch = useDispatch();

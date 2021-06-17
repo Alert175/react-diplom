@@ -1,5 +1,5 @@
 import useFetch from "../../../hooks/useFetch";
-import Loader from "./loader";
+import Loader from "../Loader";
 import ProductCard from "../../home-components/productCard";
 
 import { useSelector, useDispatch } from "react-redux";

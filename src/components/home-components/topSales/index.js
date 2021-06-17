@@ -1,5 +1,5 @@
 import useFetch from "../../../hooks/useFetch";
-import Loader from "./loader";
+import Loader from "../../general-components/Loader";
 import ProductCard from "../productCard";
 
 const TopSales = () => {
