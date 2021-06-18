@@ -35,13 +35,8 @@ const Header = () => {
   const productsByBasket = useSelector(selectProducts);
 
   const handlerBehavior = (event) => {
-    if (!showForm) {
-      setshowForm(!showForm);
-      return;
-    }
     if (findWord !== "") {
       handlerFind();
-      return;
     }
     setshowForm(!showForm);
   };
