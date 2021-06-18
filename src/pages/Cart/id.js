@@ -91,32 +91,32 @@ const PageProduct = () => {
                     )
                 )}
               </p>
-              <p>
+              {data.sizes.find((element) => element.avalible === true) && <p>
                 Количество:{" "}
                 <span className="btn-group btn-group-sm pl-2">
                   <button
-                    className="btn btn-secondary"
-                    onClick={() => {
-                      if (counter > 0) {
-                        setcounter((prev) => (prev -= 1));
-                      }
-                    }}
+                      className="btn btn-secondary"
+                      onClick={() => {
+                        if (counter > 0) {
+                          setcounter((prev) => (prev -= 1));
+                        }
+                      }}
                   >
                     -
                   </button>
                   <span className="btn btn-outline-primary">{counter}</span>
                   <button
-                    className="btn btn-secondary"
-                    onClick={() => {
-                      if (counter < 10) {
-                        setcounter((prev) => (prev += 1));
-                      }
-                    }}
+                      className="btn btn-secondary"
+                      onClick={() => {
+                        if (counter < 10) {
+                          setcounter((prev) => (prev += 1));
+                        }
+                      }}
                   >
                     +
                   </button>
                 </span>
-              </p>
+              </p>}
             </div>
             {data.sizes.find((element) => element.avalible === true) && (
               <button
