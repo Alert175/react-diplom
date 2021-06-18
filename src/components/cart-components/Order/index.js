@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { clearProduts, selectProducts } from "../Basket/basketSlice";
+import { useHistory } from 'react-router-dom'
 import { useState } from "react";
 import axios from "axios";
 
@@ -8,6 +9,7 @@ import Loader from "../../general-components/Loader";
 const Order = () => {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
+  const history = useHistory()
 
   const [isAgreement, setisAgreement] = useState(false);
   const [phone, setphone] = useState("");
@@ -26,6 +28,7 @@ const Order = () => {
       });
       dispatch(clearProduts());
       setstatusOrder("success");
+      history.push('/')
     } catch (error) {
       console.error(error);
       setstatusOrder("error");

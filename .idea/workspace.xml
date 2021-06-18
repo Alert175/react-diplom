@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="bag fix for revision v2 step - 3">
-      <change beforePath="$PROJECT_DIR$/src/components/general-components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general-components/Header/index.js" afterDir="false" />
+    <list default="true" id="7b62adc1-c35c-4e1c-bdca-6bc4666006a3" name="Default Changelist" comment="bag fix for optional revision v2 step - 2">
+      <change beforePath="$PROJECT_DIR$/src/components/cart-components/Order/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart-components/Order/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623921066179</updated>
       <workItem from="1623921071034" duration="4548000" />
-      <workItem from="1624018897301" duration="1292000" />
+      <workItem from="1624018897301" duration="1549000" />
     </task>
     <task id="LOCAL-00001" summary="bag fix for revision step - 6">
       <created>1623921508203</created>
@@ -121,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624020032079</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="bag fix for optional revision v2 step - 2">
+      <created>1624020315797</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624020315797</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +156,7 @@
     <MESSAGE value="bag fix for revision v2 step - 1" />
     <MESSAGE value="bag fix for revision v2 step - 2" />
     <MESSAGE value="bag fix for revision v2 step - 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="bag fix for revision v2 step - 3" />
+    <MESSAGE value="bag fix for optional revision v2 step - 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bag fix for optional revision v2 step - 2" />
   </component>
 </project>
