@@ -43,7 +43,7 @@ const Header = () => {
 
     const handlerFind = () => {
         if (location !== "/catalog") {
-            history.push("/catalog");
+            history.push("/catalog#find");
         }
         dispatch(changeFind(findWord));
     };

@@ -109,6 +109,7 @@ const Catalog = ({isFind}) => {
             <h2 className="text-center">Каталог</h2>
             {/* Строка поиска */}
             {isFind && <form
+                id="find"
                 className="catalog-search-form form-inline"
                 onSubmit={(event) => handlerChangeFindWord(event)}
             >
