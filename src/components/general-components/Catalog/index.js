@@ -157,7 +157,9 @@ const Catalog = ({isFind}) => {
                 : errItems === null
                     ? <div className="row">
                         {!isLoadItems && items && (
-                            <div className="row">
+                            <div style={{
+                                rowGap: "25px"
+                            }} className="row">
                                 {items.map((element, index) => (
                                     <div key={`${element.id}-${index}`} className="col-4">
                                         <ProductCard
@@ -192,14 +194,19 @@ const Catalog = ({isFind}) => {
             }
         </section>
     );
-};
+}
+;
 
-Catalog.defauldProps = {
+Catalog.defauldProps =
+{
     isFind: false,
-};
+}
+;
 
-Catalog.propTypes = {
+Catalog.propTypes =
+{
     isFind: PropTypes.bool,
-};
+}
+;
 
 export default Catalog;
