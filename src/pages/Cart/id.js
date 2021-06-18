@@ -81,6 +81,9 @@ const PageProduct = () => {
                         className={`catalog-item-size ${
                           element.size === activeSize ? "selected" : ""
                         }`}
+                        style={{
+                          cursor: "pointer"
+                        }}
                         onClick={() => setactiveSize(element.size)}
                       >
                         {element.size}
